@@ -1,0 +1,8 @@
+{
+    "stable": [{"path": "/download/2.9.8/composer.phar", "version": "2.9.8", "min-php": 70205},{"path": "/download/2.2.28/composer.phar", "version": "2.2.28", "min-php": 50300}],
+    "preview": [{"path": "/download/2.9.8/composer.phar", "version": "2.9.8", "min-php": 70205},{"path": "/download/2.2.28/composer.phar", "version": "2.2.28", "min-php": 50300}],
+    "snapshot": [{"path": "/composer.phar", "version": "6b808a02cbac7dd5cd61eb72e9dae2d052ed2f02", "min-php": 70205},{"path": "/download/2.2.28/composer.phar", "version": "2.2.28", "min-php": 50300}],
+    "1": [{"path": "/download/1.10.28/composer.phar", "version": "1.10.28", "min-php": 50300}],
+    "2": [{"path": "/download/2.9.8/composer.phar", "version": "2.9.8", "min-php": 70205},{"path": "/download/2.2.28/composer.phar", "version": "2.2.28", "min-php": 50300}],
+    "2.2": [{"path": "/download/2.2.28/composer.phar", "version": "2.2.28", "min-php": 50300}]
+}
