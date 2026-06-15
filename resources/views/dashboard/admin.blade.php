@@ -145,8 +145,8 @@
 
 @push('scripts')
 <script>
-const labels = @json($chartLabels ?? []);
-const data   = @json($chartData ?? []);
+const labels = <?= json_encode($chartLabels ?? []) ?>;
+const data   = <?= json_encode($chartData ?? []) ?>;
 const ctx = document.getElementById('ordersChart');
 if (ctx) {
     new Chart(ctx, {

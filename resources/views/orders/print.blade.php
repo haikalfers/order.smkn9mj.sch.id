@@ -15,6 +15,9 @@
         .section-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin-bottom: 6px; }
         .info-grid   { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
         .info-item dt { font-size: 10px; color: #94a3b8; }
+        .section-with-qr { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: flex-start; margin-bottom: 16px; }
+        .qr-container { text-align: center; }
+        .qr-container img { width: 100px; height: 100px; margin: 0 auto; display: block; }
         .info-item dd { font-weight: 600; color: #1e293b; margin-top: 1px; }
         table { width: 100%; border-collapse: collapse; }
         th { background: #f1f5f9; text-align: left; padding: 8px 10px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; }
@@ -34,8 +37,8 @@
 
     <div class="header">
         <div>
-            <div class="school-name">SMKN 9 Muaro Jambi</div>
-            <div class="school-sub">Sistem Manajemen Produk — Unit Percetakan & Konveksi</div>
+            <div class="school-name">Ninepixel</div>
+            <div class="school-sub">Setiap Titik Menjadi Karya</div>
         </div>
         <div class="order-num">
             <div class="num">{{ $order->order_number }}</div>
@@ -44,25 +47,32 @@
         </div>
     </div>
 
-    <div class="section">
-        <div class="section-title">Informasi Pelanggan & Order</div>
-        <div class="info-grid">
-            <dl class="info-item">
-                <dt>Nama Pelanggan</dt>
-                <dd>{{ $order->customer->name }}</dd>
-            </dl>
-            <dl class="info-item">
-                <dt>No. Telp / WA</dt>
-                <dd>{{ $order->customer->phone ?? '—' }}</dd>
-            </dl>
-            <dl class="info-item">
-                <dt>Deadline</dt>
-                <dd>{{ $order->deadline ? $order->deadline->format('d F Y') : '—' }}</dd>
-            </dl>
-            <dl class="info-item">
-                <dt>Status Pembayaran</dt>
-                <dd>{{ ['unpaid' => 'Belum Bayar', 'dp' => 'DP / Uang Muka', 'paid' => 'Lunas'][$order->payment_status] ?? $order->payment_status }}</dd>
-            </dl>
+    <div class="section-with-qr">
+        <div class="section">
+            <div class="section-title">Informasi Pelanggan & Order</div>
+            <div class="info-grid">
+                <dl class="info-item">
+                    <dt>Nama Pelanggan</dt>
+                    <dd>{{ $order->customer->name }}</dd>
+                </dl>
+                <dl class="info-item">
+                    <dt>No. Telp / WA</dt>
+                    <dd>{{ $order->customer->phone ?? '—' }}</dd>
+                </dl>
+                <dl class="info-item">
+                    <dt>Deadline</dt>
+                    <dd>{{ $order->deadline ? $order->deadline->format('d F Y') : '—' }}</dd>
+                </dl>
+                <dl class="info-item">
+                    <dt>Status Pembayaran</dt>
+                    <dd>{{ ['unpaid' => 'Belum Bayar', 'dp' => 'DP / Uang Muka', 'paid' => 'Lunas'][$order->payment_status] ?? $order->payment_status }}</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="qr-container">
+            <div class="section-title">Lacak Pesanan</div>
+            <img src="{{ $qrCodeDataUri }}" alt="QR Code Tracking" style="margin-top: 8px;">
+            <!-- <p style="font-size: 9px; color: #94a3b8; margin-top: 6px; word-wrap: break-word;">{{ route('tracking.show', $order->order_number) }}</p> -->
         </div>
     </div>
 
@@ -121,14 +131,6 @@
         <div class="notes">{{ $order->notes }}</div>
     </div>
     @endif
-
-    {{-- QR Code untuk tracking --}}
-    <div class="section" style="text-align: center; border-top: 2px solid #f1f5f9; padding-top: 16px; margin: 24px 0;">
-        <div class="section-title">Lacak Pesanan Anda</div>
-        <p style="font-size: 11px; color: #64748b; margin-bottom: 8px;">Scan QR code di bawah untuk melihat status pengerjaan pesanan Anda</p>
-        <img src="{{ $qrCodeDataUri }}" alt="QR Code Tracking" style="width: 120px; height: 120px; margin: 0 auto; display: block;">
-        <p style="font-size: 10px; color: #94a3b8; margin-top: 6px;">{{ route('tracking.show', $order->order_number) }}</p>
-    </div>
 
     <div class="footer">
         <div class="sign-box">
