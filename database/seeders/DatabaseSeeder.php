@@ -29,20 +29,6 @@ class DatabaseSeeder extends Seeder
                 'role'     => 'admin',
                 'is_active'=> true,
             ],
-            [
-                'name'     => 'Bagian Desain',
-                'email'    => 'desain@smkn9.sch.id',
-                'password' => Hash::make('desain345'),
-                'role'     => 'desain',
-                'is_active'=> true,
-            ],
-            [
-                'name'     => 'Bagian Cetak',
-                'email'    => 'cetak@smkn9.sch.id',
-                'password' => Hash::make('cetak456'),
-                'role'     => 'cetak',
-                'is_active'=> true,
-            ],
         ];
 
         foreach ($users as $data) {
