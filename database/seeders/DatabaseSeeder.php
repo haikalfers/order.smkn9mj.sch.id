@@ -17,14 +17,14 @@ class DatabaseSeeder extends Seeder
         $users = [
             [
                 'name'     => 'Super Admin',
-                'email'    => 'superadmin@smkn9.sch.id',
+                'email'    => 'superadmin@smkn9mj.sch.id',
                 'password' => Hash::make('superadmin123'),
                 'role'     => 'super_admin',
                 'is_active'=> true,
             ],
             [
                 'name'     => 'Admin',
-                'email'    => 'admin@smkn9.sch.id',
+                'email'    => 'admin@smkn9mj.sch.id',
                 'password' => Hash::make('admin234'),
                 'role'     => 'admin',
                 'is_active'=> true,
