@@ -92,6 +92,48 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- Design Files --}}
+        @if($task->order->designTask && $task->order->designTask->files && count($task->order->designTask->files) > 0)
+        <div class="bg-white rounded-xl border border-slate-200 p-5">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                    Hasil Desain
+                </h3>
+                @if($task->order->designTask->assignedUser)
+                <span class="text-xs text-slate-500">Oleh: <strong>{{ $task->order->designTask->assignedUser->name }}</strong></span>
+                @endif
+            </div>
+            <div class="space-y-2">
+                @foreach($task->order->designTask->files as $file)
+                <div class="flex items-center gap-3 bg-slate-50 rounded-lg px-4 py-3 hover:bg-blue-50 transition-colors">
+                    <svg class="w-5 h-5 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <a href="{{ Storage::url($file) }}" target="_blank" class="flex-1 text-sm text-blue-700 hover:underline truncate font-medium">{{ basename($file) }}</a>
+                    <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @else
+        <div class="bg-amber-50 rounded-xl border border-amber-200 p-5">
+            <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                    <p class="text-sm font-medium text-amber-800">Hasil Desain Belum Tersedia</p>
+                    <p class="text-xs text-amber-700 mt-1">Tim desain belum mengupload file desain. Periksa status di halaman Tugas Desain.</p>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 
     {{-- Sidebar Actions --}}

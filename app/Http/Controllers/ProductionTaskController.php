@@ -49,7 +49,7 @@ class ProductionTaskController extends Controller
 
     public function show(ProductionTask $productionTask)
     {
-        $productionTask->load('order.customer', 'order.items', 'assignedUser');
+        $productionTask->load('order.customer', 'order.items', 'assignedUser', 'order.designTask');
 
         return view('production-tasks.show', ['task' => $productionTask]);
     }
