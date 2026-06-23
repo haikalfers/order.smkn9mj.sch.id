@@ -104,7 +104,7 @@
                   class="border-2 border-dashed border-slate-300 rounded-xl p-5 text-center hover:border-brand-400 transition-colors">
                 @csrf
                 <svg class="w-8 h-8 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
-                <p class="text-sm text-slate-500 mb-3">Upload file desain (AI, PSD, PDF, ZIP, PNG, JPG · max 20MB)</p>
+                <p class="text-sm text-slate-500 mb-3">Upload file desain (AI, PSD, PDF, ZIP, PNG, JPG · max 500MB)</p>
                 <input type="file" name="file" required accept=".ai,.psd,.pdf,.zip,.png,.jpg,.jpeg"
                        class="block w-full text-sm text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-brand-50 file:text-brand-700 file:font-semibold hover:file:bg-brand-100">
                 <button type="submit" class="mt-3 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition-colors">Upload</button>

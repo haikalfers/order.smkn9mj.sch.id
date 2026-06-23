@@ -166,7 +166,7 @@ class DesignTaskController extends Controller
     public function uploadFile(Request $request, DesignTask $designTask)
     {
         $request->validate([
-            'file' => 'required|file|max:20480|mimes:ai,psd,pdf,zip,png,jpg,jpeg',
+            'file' => 'required|file|max:512000|mimes:ai,psd,pdf,zip,png,jpg,jpeg',
         ]);
 
         // Simpan ke storage/app/public/design-files/
